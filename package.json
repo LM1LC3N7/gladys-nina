@@ -1,6 +1,6 @@
 {
   "name": "gladys-nina",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "description": "NINA, the German federal warning system, for Gladys Assistant: official civil protection, weather and flood warnings for your municipality, scene triggers and a dashboard widget. Unofficial, not affiliated with the BBK.",
   "type": "module",

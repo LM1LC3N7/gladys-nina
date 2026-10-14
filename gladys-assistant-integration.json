@@ -7,8 +7,8 @@
     "fr": "Connecteur non officiel : alertes allemandes (protection civile, météo, crues) pour votre commune.",
     "de": "Inoffizieller Konnektor: Warnungen von Bevölkerungsschutz, DWD und Hochwasser für deine Gemeinde."
   },
-  "version": "0.1.2",
-  "docker_image": "ghcr.io/lm1lc3n7/gladys-nina:0.1.2",
+  "version": "0.1.3",
+  "docker_image": "ghcr.io/lm1lc3n7/gladys-nina:0.1.3",
   "gladys_version": ">=5.1.0",
   "cover_image": "https://raw.githubusercontent.com/LM1LC3N7/gladys-nina/main/cover.png",
   "categories": ["security", "environment"],
