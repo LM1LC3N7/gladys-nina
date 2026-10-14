@@ -10,6 +10,8 @@ the notes of the version's GitHub Release.
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-10-14
+
 ### Added
 
 - The widget shows the status at a glance: a green check when no warning is in
@@ -46,5 +48,6 @@ the notes of the version's GitHub Release.
   warnung.bund.de and the all-clears.
 - "Test NINA" and "Search a municipality" buttons.
 
-[Unreleased]: https://github.com/LM1LC3N7/gladys-nina/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/LM1LC3N7/gladys-nina/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/LM1LC3N7/gladys-nina/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/LM1LC3N7/gladys-nina/releases/tag/v0.1.1
