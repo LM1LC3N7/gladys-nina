@@ -14,13 +14,13 @@ no key. Source: BBK / NINA (warnung.bund.de).
 
 ## What you get
 
-| Surface                                        | Content                                                                                                                                                                  |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| One device per **house located in Germany**    | the number of warnings in force, the highest severity (0 none, 1 minor, 2 moderate, 3 severe, 4 extreme) and the title of the most severe warning                        |
-| One device per **typed municipality** (option) | the same, for a municipality or a whole district you type (a holiday home, your family's town, a house without location)                                                 |
-| Scene triggers                                 | **NINA warning issued** (minimum severity, source) and **NINA warning ended** (all clear, expired or withdrawn)                                                          |
-| Scene action                                   | **NINA warnings** of a house: count, highest severity, titles and a summary ready to send                                                                                |
-| Dashboard widget                               | **NINA warnings**: the warnings in force with their severity, source and time; tap one for the official text and the link to warnung.bund.de; the all-clears stay listed |
+| Surface                                        | Content                                                                                                                                                                                                                                                                    |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| One device per **house located in Germany**    | the number of warnings in force, the highest severity (0 none, 1 minor, 2 moderate, 3 severe, 4 extreme) and the title of the most severe warning                                                                                                                          |
+| One device per **typed municipality** (option) | the same, for a municipality or a whole district you type (a holiday home, your family's town, a house without location)                                                                                                                                                   |
+| Scene triggers                                 | **NINA warning issued** (minimum severity, source) and **NINA warning ended** (all clear, expired or withdrawn)                                                                                                                                                            |
+| Scene action                                   | **NINA warnings** of a house: count, highest severity, titles and a summary ready to send                                                                                                                                                                                  |
+| Dashboard widget                               | **NINA warnings**: a status at a glance (a green check, or the number of warnings in the colour of the most severe), the warnings in force with their severity, source and time; tap one for the official text and the link to warnung.bund.de; the all-clears stay listed |
 
 ## Setup
 
@@ -34,8 +34,9 @@ no key. Source: BBK / NINA (warnung.bund.de).
    regional key (`053340004004`). For a name shared by several municipalities,
    add the district: `Neuenkirchen (Diepholz)`. A district name or its 5-digit
    code (`05334`) watches the whole district. The **Search a municipality**
-   button gives the exact names and ARS. Save, open **Discovery** again and add
-   the devices.
+   button gives the exact names and ARS: a line of its answer
+   (`Sandhausen (Rhein-Neckar-Kreis) – 082260076076`) can be pasted as it is.
+   Save, open **Discovery** again and add the devices.
 4. Put the **NINA warnings** widget on a dashboard and pick the device.
 
 The **Test NINA** button says in which municipality each house was found and
@@ -65,14 +66,17 @@ how many warnings are in force.
 - **NINA warning ended**: same fields, plus the **reason** (empty: any): the
   authority sent an all clear, the warning expired, or it was withdrawn. The
   scene runs once per warning that had reached the chosen severity.
-- Variables: `{{title}}`, `{{headline}}`, `{{description}}`,
-  `{{instruction}}`, `{{severity}}` (1 to 4), `{{severity_name}}`,
-  `{{source}}`, `{{provider}}` (MoWaS, DWD...), `{{area}}`, `{{place}}`,
-  `{{sent}}`, `{{expires}}`, `{{link}}` (the official message).
+- Variables, inserted in a message from the variable list or written
+  `{{triggerEvent.data.<key>}}` (for instance `{{triggerEvent.data.title}}`):
+  `title`, `headline`, `description`, `instruction`, `severity` (1 to 4),
+  `severity_name`, `source`, `provider` (MoWaS, DWD...), `area`, `place`,
+  `sent`, `expires`, `link` (the official message).
 
-The action **NINA warnings** gives `{{count}}`, `{{highest_severity}}`,
-`{{titles}}` (one per line) and `{{summary}}` ("1 warning in force for
-Alsdorf: Odour nuisance (minor, MoWaS).") for a message or a condition.
+The action **NINA warnings** gives `count`, `highest_severity`, `titles` (one
+per line) and `summary` ("1 warning in force for Alsdorf: Odour nuisance
+(minor, MoWaS).") for a message or a condition. The following actions of the
+scene find them in their variable list (written `{{<step>.<action>.<key>}}`,
+for instance `{{0.0.summary}}` when this action is the first of the scene).
 
 ## How it works
 
@@ -87,8 +91,8 @@ the official app is read once a day.
 
 - **"House ... is not in a German municipality"**: NINA covers Germany only.
   Check the location of the house, or type its municipality.
-- **"Several municipalities are named ..."**: type the ARS given by **Search a
-  municipality**, or `Name (District)`.
+- **"Several municipalities are named ..."**: paste the line given by **Search
+  a municipality**, or type its ARS or `Name (District)`.
 - **"NINA (warnung.bund.de) is unreachable"**: the integration keeps the last
   reading and tries again at every refresh.
 - A warning shown by the NINA app for your **current position** (the app's

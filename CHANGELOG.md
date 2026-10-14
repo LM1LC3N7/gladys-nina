@@ -10,6 +10,21 @@ the notes of the version's GitHub Release.
 
 ## [Unreleased]
 
+### Added
+
+- The widget shows the status at a glance: a green check when no warning is in
+  force, else the number of warnings with an exclamation mark, in the colour of
+  the most severe one.
+
+### Fixed
+
+- A line of the "Search a municipality" answer, pasted whole in "Municipalities
+  to watch" (`Sandhausen (Rhein-Neckar-Kreis) – 082260076076`), is understood:
+  only the ARS alone used to work.
+- Docs: the scene variables are written as Gladys reads them,
+  `{{triggerEvent.data.<key>}}`, and the action outputs come from the variable
+  list.
+
 ## [0.1.1] - 2026-10-14
 
 ### Added

@@ -112,6 +112,12 @@ export const T = {
       fr: 'Pas un système de sécurité : fiez-vous aux canaux officiels (application NINA, sirènes, radio). Source : BBK / NINA (warnung.bund.de), connecteur non officiel.',
     },
     allClear: { en: 'All clear', fr: 'Fin d’alerte' },
+    // The status tile: a label of 24 characters at most.
+    tileNone: { en: 'No warning in force', fr: 'Aucun avertissement' },
+    tileActive: (count) => ({
+      en: count === 1 ? 'Warning in force' : 'Warnings in force',
+      fr: count === 1 ? 'Avertissement en cours' : 'Avertissements en cours',
+    }),
     official: { en: 'Official message', fr: 'Message officiel' },
     moreInfo: { en: 'More information', fr: 'Plus d’informations' },
     sentBy: { en: 'Sent by', fr: 'Émis par' },

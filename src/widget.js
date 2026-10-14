@@ -1,8 +1,9 @@
 // -----------------------------------------------------------------------------
-// The dashboard widget "warnings": the warnings in force for a place, most
-// severe first (severity badge, source, time, the official text on tap), the
-// all-clear messages still listed, and the reminder that this is not a safety
-// system. Pure.
+// The dashboard widget "warnings": a status tile (a check, or the count in
+// the colour of the most severe warning), the warnings in force for a place,
+// most severe first (severity badge, source, time, the official text on tap),
+// the all-clear messages still listed, and the reminder that this is not a
+// safety system. Pure.
 // -----------------------------------------------------------------------------
 
 import { WIDGET_COLORS } from '@gladysassistant/integration-sdk';
@@ -73,12 +74,29 @@ function card(warning, language, allClear = false) {
   };
 }
 
+/**
+ * The status at a glance (asked on the forum): a green check when nothing is
+ * in force, else an exclamation mark and the count, in the colour of the most
+ * severe warning (the colours of the badges below).
+ */
+function statusTile(reading, language) {
+  const calm = reading.count === 0;
+  return {
+    type: 'value',
+    value: reading.count,
+    label: pick(calm ? T.widget.tileNone : T.widget.tileActive(reading.count), language),
+    icon: calm ? 'check-circle' : 'alert-circle',
+    color: calm ? WIDGET_COLORS.SUCCESS : SEVERITY_COLORS[reading.highest],
+  };
+}
+
 export function warningsWidget({ name, placeName, reading, language = 'fr' }) {
   const components = [{ type: 'text', text: cut(name ?? 'NINA', 40), variant: 'heading' }];
   if (!reading) {
     components.push({ type: 'text', text: T.widget.notLoaded, variant: 'body' });
     return { ttl_seconds: 30, components };
   }
+  components.push(statusTile(reading, language));
   const items = [
     ...reading.active.map((w) => card(w, language)),
     ...reading.allClear.map((w) => card(w, language, true)),

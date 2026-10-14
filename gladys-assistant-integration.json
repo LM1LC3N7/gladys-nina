@@ -58,8 +58,8 @@
         "fr": "Communes à surveiller (en plus de vos maisons)"
       },
       "description": {
-        "en": "Optional. German municipalities by name or ARS (12 digits), separated by commas: each one is offered in Discovery. \"Name (District)\" picks among homonyms; a district name or code watches the whole district. Useful for a house without location, a holiday home or your family's town. The \"Search a municipality\" button gives the exact names.",
-        "fr": "Facultatif. Communes allemandes par nom ou ARS (12 chiffres), séparées par des virgules : chacune est proposée dans Découverte. « Nom (District) » départage les homonymes ; un nom ou code de district surveille tout le district. Utile pour une maison sans emplacement, une maison de vacances ou la ville de la famille. Le bouton « Chercher une commune » donne les noms exacts."
+        "en": "Optional. German municipalities by name or ARS (12 digits), separated by commas: each one is offered in Discovery. \"Name (District)\" picks among homonyms; a district name or code watches the whole district. Useful for a house without location, a holiday home or your family's town. The \"Search a municipality\" button gives lines you can paste here as they are.",
+        "fr": "Facultatif. Communes allemandes par nom ou ARS (12 chiffres), séparées par des virgules : chacune est proposée dans Découverte. « Nom (District) » départage les homonymes ; un nom ou code de district surveille tout le district. Utile pour une maison sans emplacement, une maison de vacances ou la ville de la famille. Le bouton « Chercher une commune » donne des lignes à coller ici telles quelles."
       },
       "required": false,
       "placeholder": {
@@ -150,8 +150,8 @@
       "timeout_seconds": 30,
       "label": { "en": "Search a municipality", "fr": "Chercher une commune" },
       "description": {
-        "en": "Finds the German municipalities whose name contains the text, with their district and ARS.",
-        "fr": "Trouve les communes allemandes dont le nom contient le texte, avec leur district et leur ARS."
+        "en": "Finds the German municipalities whose name contains the text, with their district and ARS: paste a line in the municipalities to watch.",
+        "fr": "Trouve les communes allemandes dont le nom contient le texte, avec leur district et leur ARS : collez une ligne dans les communes à surveiller."
       },
       "fields": [
         {

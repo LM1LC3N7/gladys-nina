@@ -103,7 +103,9 @@ export const placeLine = (m) => `${label(m)} – ${m.ars}`;
  *   - 12 digits: an ARS (a municipality, or a whole district for "xxxxx0000000");
  *   - 5 digits: a district code;
  *   - a name, optionally "Name (District)" to pick among homonyms; a district
- *     name ("Landkreis Cloppenburg", "Cloppenburg") when no municipality has it.
+ *     name ("Landkreis Cloppenburg", "Cloppenburg") when no municipality has it;
+ *   - a line of the search results pasted whole, "Name (District) – ARS": the
+ *     ARS decides (no municipality or district name ends with digits).
  * Returns { place } or { error: 'unknown' | 'ambiguous', matches }.
  */
 export function resolvePlace(directory, query) {
@@ -111,7 +113,9 @@ export function resolvePlace(directory, query) {
   if (!text) {
     return { error: 'unknown', matches: [] };
   }
-  const digits = text.replace(/\s+/g, '');
+  // Any dash: an en dash once copied may come back as a hyphen or an em dash.
+  const pasted = /\s[-–—]\s*(\d{12}|\d{5})$/.exec(text);
+  const digits = (pasted ? pasted[1] : text).replace(/\s+/g, '');
   if (/^\d{12}$/.test(digits) || /^\d{5}$/.test(digits)) {
     const ars = digits.length === 5 ? `${digits}0000000` : digits;
     const municipality = directory.byArs.get(ars);

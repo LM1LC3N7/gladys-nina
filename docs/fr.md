@@ -15,13 +15,13 @@ compte ni clé. Source : BBK / NINA (warnung.bund.de).
 
 ## Ce que vous obtenez
 
-| Surface                                         | Contenu                                                                                                                                                                                          |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Un appareil par **maison située en Allemagne**  | le nombre d'alertes en cours, la gravité la plus haute (0 aucune, 1 mineure, 2 modérée, 3 sévère, 4 extrême) et le titre de l'alerte la plus grave                                               |
-| Un appareil par **commune saisie** (facultatif) | la même chose, pour une commune ou un district entier que vous saisissez (maison de vacances, ville de la famille, maison sans emplacement)                                                      |
-| Déclencheurs de scène                           | **Alerte NINA émise** (gravité minimale, source) et **Alerte NINA terminée** (fin d'alerte, expirée ou retirée)                                                                                  |
-| Action de scène                                 | **Alertes NINA** d'une maison : nombre, gravité la plus haute, titres et un résumé prêt à envoyer                                                                                                |
-| Widget                                          | **Alertes NINA** : les alertes en cours avec leur gravité, leur source et leur heure ; touchez-en une pour le texte officiel et le lien vers warnung.bund.de ; les fins d'alerte restent listées |
+| Surface                                         | Contenu                                                                                                                                                                                                                                                                                             |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Un appareil par **maison située en Allemagne**  | le nombre d'alertes en cours, la gravité la plus haute (0 aucune, 1 mineure, 2 modérée, 3 sévère, 4 extrême) et le titre de l'alerte la plus grave                                                                                                                                                  |
+| Un appareil par **commune saisie** (facultatif) | la même chose, pour une commune ou un district entier que vous saisissez (maison de vacances, ville de la famille, maison sans emplacement)                                                                                                                                                         |
+| Déclencheurs de scène                           | **Alerte NINA émise** (gravité minimale, source) et **Alerte NINA terminée** (fin d'alerte, expirée ou retirée)                                                                                                                                                                                     |
+| Action de scène                                 | **Alertes NINA** d'une maison : nombre, gravité la plus haute, titres et un résumé prêt à envoyer                                                                                                                                                                                                   |
+| Widget                                          | **Alertes NINA** : l'état d'un coup d'œil (une coche verte, ou le nombre d'alertes dans la couleur de la plus grave), les alertes en cours avec leur gravité, leur source et leur heure ; touchez-en une pour le texte officiel et le lien vers warnung.bund.de ; les fins d'alerte restent listées |
 
 ## Installation
 
@@ -36,8 +36,9 @@ compte ni clé. Source : BBK / NINA (warnung.bund.de).
    régionale officielle à 12 chiffres (`053340004004`). Pour un nom porté par
    plusieurs communes, ajoutez le district : `Neuenkirchen (Diepholz)`. Un nom
    de district ou son code à 5 chiffres (`05334`) surveille tout le district.
-   Le bouton **Chercher une commune** donne les noms exacts et les ARS.
-   Enregistrez, rouvrez **Découverte** et ajoutez les appareils.
+   Le bouton **Chercher une commune** donne les noms exacts et les ARS : une
+   ligne de sa réponse (`Sandhausen (Rhein-Neckar-Kreis) – 082260076076`) se
+   colle telle quelle. Enregistrez, rouvrez **Découverte** et ajoutez les appareils.
 4. Placez le widget **Alertes NINA** sur un tableau de bord et choisissez
    l'appareil.
 
@@ -71,15 +72,19 @@ trouvée et combien d'alertes sont en cours.
   : l'autorité a envoyé une fin d'alerte, l'alerte a expiré, ou elle a été
   retirée. La scène s'exécute une fois par alerte qui avait atteint la gravité
   choisie.
-- Variables : `{{title}}`, `{{headline}}`, `{{description}}`,
-  `{{instruction}}`, `{{severity}}` (1 à 4), `{{severity_name}}`,
-  `{{source}}`, `{{provider}}` (MoWaS, DWD...), `{{area}}`, `{{place}}`,
-  `{{sent}}`, `{{expires}}`, `{{link}}` (le message officiel).
+- Variables, à insérer dans un message depuis la liste des variables ou à
+  écrire `{{triggerEvent.data.<clé>}}` (par exemple
+  `{{triggerEvent.data.title}}`) : `title`, `headline`, `description`,
+  `instruction`, `severity` (1 à 4), `severity_name`, `source`, `provider`
+  (MoWaS, DWD...), `area`, `place`, `sent`, `expires`, `link` (le message
+  officiel).
 
-L'action **Alertes NINA** donne `{{count}}`, `{{highest_severity}}`,
-`{{titles}}` (un par ligne) et `{{summary}}` (« 1 avertissement en cours pour
-Alsdorf : Nuisance olfactive (mineur, MoWaS). ») pour un message ou une
-condition.
+L'action **Alertes NINA** donne `count`, `highest_severity`, `titles` (un par
+ligne) et `summary` (« 1 avertissement en cours pour Alsdorf : Nuisance
+olfactive (mineur, MoWaS). ») pour un message ou une condition. Les actions
+suivantes de la scène les trouvent dans leur liste de variables (écrites
+`{{<étape>.<action>.<clé>}}`, par exemple `{{0.0.summary}}` quand cette action
+est la première de la scène).
 
 ## Fonctionnement
 
@@ -96,8 +101,8 @@ officielle est lue une fois par jour.
 - **« La maison ... n'est pas dans une commune allemande »** : NINA ne couvre
   que l'Allemagne. Vérifiez l'emplacement de la maison, ou saisissez sa
   commune.
-- **« Plusieurs communes s'appellent ... »** : saisissez l'ARS donné par
-  **Chercher une commune**, ou `Nom (District)`.
+- **« Plusieurs communes s'appellent ... »** : collez la ligne donnée par
+  **Chercher une commune**, ou saisissez son ARS ou `Nom (District)`.
 - **« NINA (warnung.bund.de) est injoignable »** : l'intégration garde la
   dernière lecture et réessaie à chaque rafraîchissement.
 - Une alerte que l'application NINA affiche pour votre **position actuelle**

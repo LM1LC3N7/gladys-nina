@@ -73,8 +73,13 @@ test('the widget: warnings first, the all-clears after, the reminder always', ()
     language: 'fr',
   });
   assert.deepEqual(validateWidgetContent(content), []);
-  const [heading, list, body] = content.components;
+  const [heading, tile, list, body] = content.components;
   assert.equal(heading.text, 'NINA Home');
+  // The status at a glance: the count, an exclamation mark, the colour of the worst.
+  assert.deepEqual(
+    [tile.type, tile.value, tile.label, tile.icon, tile.color],
+    ['value', 2, 'Avertissements en cours', 'alert-circle', 'danger'],
+  );
   assert.deepEqual(
     list.items.map((i) => [i.title, i.badge.text, i.badge.color]),
     [
@@ -100,8 +105,13 @@ test('the widget when calm, and before the first reading', () => {
     language: 'en',
   });
   assert.deepEqual(validateWidgetContent(calm), []);
-  assert.equal(calm.components.length, 2);
-  assert.match(calm.components[1].text, /^No warning in force for Alsdorf\.\nNot a safety system/);
+  assert.equal(calm.components.length, 3);
+  const [, tile, body] = calm.components;
+  assert.deepEqual(
+    [tile.value, tile.label, tile.icon, tile.color],
+    [0, 'No warning in force', 'check-circle', 'success'],
+  );
+  assert.match(body.text, /^No warning in force for Alsdorf\.\nNot a safety system/);
   const waiting = warningsWidget({ name: 'NINA Home', reading: undefined });
   assert.deepEqual(validateWidgetContent(waiting), []);
   assert.equal(waiting.ttl_seconds, 30);
@@ -117,7 +127,8 @@ test('a very long official text is cut to the detail panel, the note kept', () =
     language: 'en',
   });
   assert.deepEqual(validateWidgetContent(content), []);
-  const { description } = content.components[1].items[0];
+  const list = content.components.find((c) => c.type === 'card-list');
+  const { description } = list.items[0];
   assert.ok(description.length <= 2000);
   assert.match(description, /…\n\nOriginal text in German, unchanged\./);
 });

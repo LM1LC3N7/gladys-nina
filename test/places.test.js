@@ -55,6 +55,29 @@ test('a typed name or ARS becomes a place', () => {
   assert.equal(resolvePlace(d, '999990000000').error, 'unknown');
 });
 
+test('a line of the search results, pasted whole, is understood (forum report)', () => {
+  const d = directory();
+  const line = placeLine(resolvePlace(d, 'Neuenkirchen (Diepholz)').place);
+  assert.equal(line, 'Neuenkirchen (Diepholz) – 032515406028');
+  assert.equal(resolvePlace(d, line).place.ars, '032515406028');
+  // The dash may come back as a hyphen or an em dash once copied.
+  assert.equal(
+    resolvePlace(d, 'Alsdorf (Städteregion Aachen) - 053340004004').place.name,
+    'Alsdorf',
+  );
+  assert.equal(
+    resolvePlace(d, 'Alsdorf (Städteregion Aachen) — 053340004004').place.name,
+    'Alsdorf',
+  );
+  // The line of the Test button too ("ARS → Name (District) – ARS").
+  assert.equal(
+    resolvePlace(d, '053340004004 → Alsdorf (Städteregion Aachen) – 053340004004').place.name,
+    'Alsdorf',
+  );
+  assert.equal(resolvePlace(d, 'Landkreis Cloppenburg – 034530000000').place.level, 'district');
+  assert.equal(resolvePlace(d, 'Atlantis – 999990000000').error, 'unknown');
+});
+
 test('the search ranks exact names first, then the populous ones', () => {
   const d = directory();
   assert.deepEqual(

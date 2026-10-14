@@ -185,7 +185,10 @@ test('an all-clear ends the warning', async () => {
   const widget = (await gladys.fake.widgetGet(WIDGETS.WARNINGS, { settings: { house: HOUSE } }))
     .data.content;
   assert.deepEqual(validateWidgetContent(widget), []);
-  assert.equal(widget.components[1].items[0].badge.text, 'All clear');
+  const cards = widget.components.find((c) => c.type === 'card-list');
+  assert.equal(cards.items[0].badge.text, 'All clear');
+  const tile = widget.components.find((c) => c.type === 'value');
+  assert.deepEqual([tile.value, tile.icon, tile.color], [0, 'check-circle', 'success']);
   app.stop();
 });
 
@@ -238,7 +241,10 @@ test('the scene action and the widget', async () => {
   ).data.content;
   assert.deepEqual(validateWidgetContent(widget), []);
   assert.equal(widget.components[0].text, 'NINA Home');
-  assert.equal(widget.components[1].items[0].title, 'Nuisance olfactive');
+  const cards = widget.components.find((c) => c.type === 'card-list');
+  assert.equal(cards.items[0].title, 'Nuisance olfactive');
+  const tile = widget.components.find((c) => c.type === 'value');
+  assert.deepEqual([tile.value, tile.label, tile.color], [1, 'Avertissement en cours', 'info']);
   const none = (await gladys.fake.widgetGet(WIDGETS.WARNINGS, { settings: {} })).data.content;
   assert.match(none.components[0].text.en, /Pick the NINA device/);
 });
