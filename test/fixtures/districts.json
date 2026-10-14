@@ -1,0 +1,10 @@
+{
+  "02000": { "NAME": "Hamburg", "PKT": "9.997,53.5507", "KFS": true, "EWZ": 1841179 },
+  "03251": { "NAME": "Landkreis Diepholz", "PKT": "8.3706,52.6064", "EWZ": 216886 },
+  "03453": { "NAME": "Landkreis Cloppenburg", "PKT": "8.0425,52.8484", "EWZ": 169348 },
+  "03459": { "NAME": "Landkreis Osnabrück", "PKT": "8.0421,52.2769", "EWZ": 357343 },
+  "05334": { "NAME": "Landkreis Städteregion Aachen", "PKT": "6.0848,50.7735", "EWZ": 555465 },
+  "05358": { "NAME": "Landkreis Düren", "PKT": "6.483,50.8017", "EWZ": 263722 },
+  "05370": { "NAME": "Landkreis Heinsberg", "PKT": "6.0945,51.0619", "EWZ": 254322 },
+  "11000": { "NAME": "Berlin", "PKT": "13.4055,52.5177", "KFS": true, "EWZ": 3644826 }
+}

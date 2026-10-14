@@ -1,0 +1,143 @@
+{
+  "identifier": "mow.DE-NW-AC-SE090-20261014-90-000",
+  "sender": "DE-NW-AC-SE090",
+  "sent": "2026-10-14T11:42:13+02:00",
+  "status": "Actual",
+  "msgType": "Alert",
+  "scope": "Public",
+  "code": ["DVN:21"],
+  "info": [
+    {
+      "language": "de",
+      "category": ["Fire"],
+      "event": "Gefahreninformation",
+      "urgency": "Immediate",
+      "severity": "Minor",
+      "certainty": "Observed",
+      "eventCode": [
+        {
+          "valueName": "profile:DE-BBK-EVENTCODE",
+          "value": "BBK-EVC-030"
+        }
+      ],
+      "headline": "Geruchsbelästigung - Alsdorf - Mariadorf",
+      "description": "Durch ein Schadensereignis kommt es im Bereich Alsdorf-Mitte, Schaufenberg, Ost, Mariadorf und Hoengen zu einer Geruchsbelästigung durch Brandrauch.<br/>Es besteht keine akute Gesundheitsgefahr.",
+      "instruction": "Es besteht keine Gefahr.<br/>Schließen Sie vorsorglich Fenster und Türen.",
+      "parameter": [
+        {
+          "valueName": "sender_signature",
+          "value": "Integrierte Leitstelle Städteregion Aachen\nStolberger Straße 155\n52068 Aachen"
+        },
+        {
+          "valueName": "sender_langname",
+          "value": "Integrierte Leitstelle Städteregion Aachen"
+        },
+        {
+          "valueName": "instructionCode",
+          "value": "BBK-ISC-082 BBK-ISC-151"
+        },
+        {
+          "valueName": "warnVerwaltungsbereiche",
+          "value": "053340004004"
+        },
+        {
+          "valueName": "PHGEM",
+          "value": "3251,100001"
+        },
+        {
+          "valueName": "ZGEM",
+          "value": "3251,100001"
+        },
+        {
+          "valueName": "cellBroadcastId",
+          "value": "JkixiDESQt0d"
+        }
+      ],
+      "area": [
+        {
+          "areaDesc": "Alsdorf - Mariadorf"
+        }
+      ]
+    },
+    {
+      "language": "en",
+      "category": ["Fire"],
+      "event": "Gefahreninformation",
+      "urgency": "Immediate",
+      "severity": "Minor",
+      "certainty": "Observed",
+      "eventCode": [
+        {
+          "valueName": "profile:DE-BBK-EVENTCODE",
+          "value": "BBK-EVC-030"
+        }
+      ],
+      "headline": "Odour nuisance",
+      "description": "Durch ein Schadensereignis kommt es im Bereich Alsdorf-Mitte, Schaufenberg, Ost, Mariadorf und Hoengen zu einer Geruchsbelästigung durch Brandrauch.<br/>Es besteht keine akute Gesundheitsgefahr.",
+      "instruction": "There is no danger.<br/>Close windows and doors as a precaution.",
+      "parameter": [
+        {
+          "valueName": "sender_signature",
+          "value": "Integrierte Leitstelle Städteregion Aachen\nStolberger Straße 155\n52068 Aachen"
+        },
+        {
+          "valueName": "sender_langname",
+          "value": "Integrierte Leitstelle Städteregion Aachen"
+        },
+        {
+          "valueName": "instructionCode",
+          "value": "BBK-ISC-082 BBK-ISC-151"
+        },
+        {
+          "valueName": "warnVerwaltungsbereiche",
+          "value": "053340004004"
+        }
+      ],
+      "area": [
+        {
+          "areaDesc": "Alsdorf - Mariadorf"
+        }
+      ]
+    },
+    {
+      "language": "fr",
+      "category": ["Fire"],
+      "event": "Gefahreninformation",
+      "urgency": "Immediate",
+      "severity": "Minor",
+      "certainty": "Observed",
+      "eventCode": [
+        {
+          "valueName": "profile:DE-BBK-EVENTCODE",
+          "value": "BBK-EVC-030"
+        }
+      ],
+      "headline": "Nuisance olfactive",
+      "description": "Durch ein Schadensereignis kommt es im Bereich Alsdorf-Mitte, Schaufenberg, Ost, Mariadorf und Hoengen zu einer Geruchsbelästigung durch Brandrauch.<br/>Es besteht keine akute Gesundheitsgefahr.",
+      "instruction": "Il n&apos;y a pas de danger.<br/>Fermez les fenêtres et les portes à titre préventif.",
+      "parameter": [
+        {
+          "valueName": "sender_signature",
+          "value": "Integrierte Leitstelle Städteregion Aachen\nStolberger Straße 155\n52068 Aachen"
+        },
+        {
+          "valueName": "sender_langname",
+          "value": "Integrierte Leitstelle Städteregion Aachen"
+        },
+        {
+          "valueName": "instructionCode",
+          "value": "BBK-ISC-082 BBK-ISC-151"
+        },
+        {
+          "valueName": "warnVerwaltungsbereiche",
+          "value": "053340004004"
+        }
+      ],
+      "area": [
+        {
+          "areaDesc": "Alsdorf - Mariadorf"
+        }
+      ]
+    }
+  ]
+}

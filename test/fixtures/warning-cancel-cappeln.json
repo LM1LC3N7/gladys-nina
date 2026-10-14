@@ -1,0 +1,165 @@
+{
+  "identifier": "mow.DE-NI-STD-SE029-20261014-29-001",
+  "sender": "DE-NI-OL-W015",
+  "sent": "2026-10-14T12:33:27+02:00",
+  "status": "Actual",
+  "msgType": "Cancel",
+  "scope": "Public",
+  "code": ["DVN:21"],
+  "references": "DE-NI-OL-W015,mow.DE-NI-OL-W015-20261014-001,2026-10-14T10:32:35-00:00 DE-NI-STD-SE029,mow.DE-NI-STD-SE029-20261014-29-000,2026-10-14T07:19:51-00:00 DE-NI-OL-W015,mow.DE-NI-OL-W015-20261014-000,2026-10-14T07:18:52-00:00",
+  "info": [
+    {
+      "language": "de",
+      "category": ["Fire"],
+      "event": "Gefahreninformation",
+      "responseType": ["AllClear"],
+      "urgency": "Immediate",
+      "severity": "Minor",
+      "certainty": "Observed",
+      "eventCode": [
+        {
+          "valueName": "profile:DE-BBK-EVENTCODE",
+          "value": "BBK-EVC-030"
+        }
+      ],
+      "expires": "2026-10-14T18:33:26+02:00",
+      "headline": "Entwarnung: Großbrand im Landkreis Cloppenburg  in der Gemeinde Cappeln - Cappeln",
+      "description": "Dies ist die Entwarnung zur Warnung &quot;Großbrand im Landkreis Cloppenburg  in der Gemeinde Cappeln - Cappeln&quot; vom 14.10.2026 12:32:35 gesendet durch Kooperative Großleitstelle Oldenburg. Die Warnung ist aufgehoben.<br/><br/>Großbrand eines Hauses, in der Gemeinde Cappeln, in der Straße Große Straße mit starker Rauchentwicklung. Da es zu Geruchsbelästigungen kommen kann, halten Sie vorsorglich Fenster und Türen geschlossen. Schadstoffe wurden nicht gemessen. Im Zuge des Feuerwehreinsatzes kommt es zu Verkehrsbehinderungen im BereichCappeln, bitte umfahren Sie den Bereich weitläufig. Sobald sich die Situation ändert, werden wir Sie informieren.",
+      "instruction": "Es besteht keine Gefahr.<br/>Da es zu Geruchsbelästigungen kommen kann, halten Sie vorsorglich Fenster und Türen geschlossen.",
+      "contact": "Gemeinde ________________________________<br/>Telefon ______________________________",
+      "parameter": [
+        {
+          "valueName": "sender_signature",
+          "value": "Kooperative Großleitstelle Oldenburg\nFriedhofsweg 30\n26121 Oldenburg"
+        },
+        {
+          "valueName": "sender_langname",
+          "value": "Kooperative Großleitstelle Oldenburg"
+        },
+        {
+          "valueName": "instructionCode",
+          "value": "BBK-ISC-082"
+        },
+        {
+          "valueName": "instructionText",
+          "value": "Da es zu Geruchsbelästigungen kommen kann, halten Sie vorsorglich Fenster und Türen geschlossen."
+        },
+        {
+          "valueName": "warnVerwaltungsbereiche",
+          "value": "034530003003,034530005005"
+        },
+        {
+          "valueName": "PHGEM",
+          "value": "275,277,100001"
+        },
+        {
+          "valueName": "GRID",
+          "value": "136849+2,137461+3,138074+3,138688+2,500001"
+        },
+        {
+          "valueName": "cellBroadcastId",
+          "value": "vBn5wPYwrZxo"
+        }
+      ],
+      "area": [
+        {
+          "areaDesc": "Cappeln"
+        }
+      ]
+    },
+    {
+      "language": "en",
+      "category": ["Fire"],
+      "event": "Gefahreninformation",
+      "responseType": ["AllClear"],
+      "urgency": "Immediate",
+      "severity": "Minor",
+      "certainty": "Observed",
+      "eventCode": [
+        {
+          "valueName": "profile:DE-BBK-EVENTCODE",
+          "value": "BBK-EVC-030"
+        }
+      ],
+      "expires": "2026-10-14T18:33:26+02:00",
+      "headline": "Odour nuisance",
+      "description": "Dies ist die Entwarnung zur Warnung &quot;Großbrand im Landkreis Cloppenburg  in der Gemeinde Cappeln - Cappeln&quot; vom 14.10.2026 12:32:35 gesendet durch Kooperative Großleitstelle Oldenburg. Die Warnung ist aufgehoben.<br/><br/>Großbrand eines Hauses, in der Gemeinde Cappeln, in der Straße Große Straße mit starker Rauchentwicklung. Da es zu Geruchsbelästigungen kommen kann, halten Sie vorsorglich Fenster und Türen geschlossen. Schadstoffe wurden nicht gemessen. Im Zuge des Feuerwehreinsatzes kommt es zu Verkehrsbehinderungen im BereichCappeln, bitte umfahren Sie den Bereich weitläufig. Sobald sich die Situation ändert, werden wir Sie informieren.",
+      "instruction": "There is no danger.<br/>Da es zu Geruchsbelästigungen kommen kann, halten Sie vorsorglich Fenster und Türen geschlossen.",
+      "contact": "Gemeinde ________________________________<br/>Telefon ______________________________",
+      "parameter": [
+        {
+          "valueName": "sender_signature",
+          "value": "Kooperative Großleitstelle Oldenburg\nFriedhofsweg 30\n26121 Oldenburg"
+        },
+        {
+          "valueName": "sender_langname",
+          "value": "Kooperative Großleitstelle Oldenburg"
+        },
+        {
+          "valueName": "instructionCode",
+          "value": "BBK-ISC-082"
+        },
+        {
+          "valueName": "instructionText",
+          "value": "Da es zu Geruchsbelästigungen kommen kann, halten Sie vorsorglich Fenster und Türen geschlossen."
+        },
+        {
+          "valueName": "warnVerwaltungsbereiche",
+          "value": "034530003003,034530005005"
+        }
+      ],
+      "area": [
+        {
+          "areaDesc": "Cappeln"
+        }
+      ]
+    },
+    {
+      "language": "fr",
+      "category": ["Fire"],
+      "event": "Gefahreninformation",
+      "responseType": ["AllClear"],
+      "urgency": "Immediate",
+      "severity": "Minor",
+      "certainty": "Observed",
+      "eventCode": [
+        {
+          "valueName": "profile:DE-BBK-EVENTCODE",
+          "value": "BBK-EVC-030"
+        }
+      ],
+      "expires": "2026-10-14T18:33:26+02:00",
+      "headline": "Nuisance olfactive",
+      "description": "Dies ist die Entwarnung zur Warnung &quot;Großbrand im Landkreis Cloppenburg  in der Gemeinde Cappeln - Cappeln&quot; vom 14.10.2026 12:32:35 gesendet durch Kooperative Großleitstelle Oldenburg. Die Warnung ist aufgehoben.<br/><br/>Großbrand eines Hauses, in der Gemeinde Cappeln, in der Straße Große Straße mit starker Rauchentwicklung. Da es zu Geruchsbelästigungen kommen kann, halten Sie vorsorglich Fenster und Türen geschlossen. Schadstoffe wurden nicht gemessen. Im Zuge des Feuerwehreinsatzes kommt es zu Verkehrsbehinderungen im BereichCappeln, bitte umfahren Sie den Bereich weitläufig. Sobald sich die Situation ändert, werden wir Sie informieren.",
+      "instruction": "Il n&apos;y a pas de danger.<br/>Da es zu Geruchsbelästigungen kommen kann, halten Sie vorsorglich Fenster und Türen geschlossen.",
+      "contact": "Gemeinde ________________________________<br/>Telefon ______________________________",
+      "parameter": [
+        {
+          "valueName": "sender_signature",
+          "value": "Kooperative Großleitstelle Oldenburg\nFriedhofsweg 30\n26121 Oldenburg"
+        },
+        {
+          "valueName": "sender_langname",
+          "value": "Kooperative Großleitstelle Oldenburg"
+        },
+        {
+          "valueName": "instructionCode",
+          "value": "BBK-ISC-082"
+        },
+        {
+          "valueName": "instructionText",
+          "value": "Da es zu Geruchsbelästigungen kommen kann, halten Sie vorsorglich Fenster und Türen geschlossen."
+        },
+        {
+          "valueName": "warnVerwaltungsbereiche",
+          "value": "034530003003,034530005005"
+        }
+      ],
+      "area": [
+        {
+          "areaDesc": "Cappeln"
+        }
+      ]
+    }
+  ]
+}

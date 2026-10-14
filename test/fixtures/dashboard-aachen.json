@@ -1,0 +1,37 @@
+[
+  {
+    "id": "mow.DE-NW-AC-SE090-20261014-90-000",
+    "payload": {
+      "version": 21,
+      "type": "ALERT",
+      "id": "mow.DE-NW-AC-SE090-20261014-90-000",
+      "hash": "94ca866997abde7e7a5a19d0f8de3584b5017fc598c9070427e7e122b5f57031",
+      "data": {
+        "headline": "Geruchsbelästigung - Alsdorf - Mariadorf",
+        "provider": "MOWAS",
+        "severity": "Minor",
+        "urgency": "Immediate",
+        "msgType": "Alert",
+        "transKeys": {
+          "event": "BBK-EVC-030"
+        },
+        "area": {
+          "type": "ZGEM",
+          "data": "3251,100001"
+        },
+        "valid": true
+      }
+    },
+    "i18nTitle": {
+      "de": "Geruchsbelästigung - Alsdorf - Mariadorf",
+      "en": "Odour nuisance",
+      "ar": "انزعاج من الروائح الكريهة",
+      "es": "Molestia por malos olores",
+      "fr": "Nuisance olfactive",
+      "pl": "Uciążliwy zapach",
+      "ru": "Неприятные запахи",
+      "tr": "Koku rahatsızlığı"
+    },
+    "sent": "2026-10-14T11:42:13+02:00"
+  }
+]
