@@ -132,3 +132,42 @@ test('a very long official text is cut to the detail panel, the note kept', () =
   assert.ok(description.length <= 2000);
   assert.match(description, /…\n\nOriginal text in German, unchanged\./);
 });
+
+test('in German: the feature names, the widget and its status tile', () => {
+  const gladys = createFakeGladys({ selector: 'nina' });
+  const device = buildPlaceDevice(gladys, {
+    kind: 'house',
+    selector: 'home',
+    houseName: 'Zuhause',
+    place: alsdorfPlace(),
+    language: 'de',
+  });
+  assert.deepEqual(
+    device.features.map((f) => f.name),
+    ['Aktive Warnungen', 'Höchste Warnstufe', 'Schwerste Warnung'],
+  );
+  const calm = warningsWidget({
+    name: 'NINA Zuhause',
+    placeName: 'Alsdorf',
+    reading: placeReading([], FIXTURE_NOW),
+    language: 'de',
+  });
+  assert.deepEqual(validateWidgetContent(calm), []);
+  const [, tile, body] = calm.components;
+  assert.deepEqual(
+    [tile.label, tile.icon, tile.color],
+    ['Keine aktive Warnung', 'check-circle', 'success'],
+  );
+  assert.match(body.text, /^Keine aktive Warnung für Alsdorf\.\nKein Sicherheitssystem/);
+  const busy = warningsWidget({
+    name: 'NINA Zuhause',
+    reading: placeReading([alsdorf()], FIXTURE_NOW),
+    language: 'de',
+  });
+  assert.deepEqual(validateWidgetContent(busy), []);
+  const list = busy.components.find((c) => c.type === 'card-list');
+  assert.equal(list.items[0].title, 'Geruchsbelästigung - Alsdorf - Mariadorf', 'the original');
+  assert.equal(list.items[0].badge.text, 'Gering');
+  assert.match(list.items[0].description, /Originaltext, unverändert\./);
+  assert.equal(busy.components.find((c) => c.type === 'value').label, 'Aktive Warnung');
+});

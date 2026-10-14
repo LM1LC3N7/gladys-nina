@@ -10,6 +10,19 @@ the notes of the version's GitHub Release.
 
 ## [Unreleased]
 
+### Added
+
+- German: the configuration, the buttons, the statuses, the widget, the scene
+  cards and a guide (`docs/de.md`), in the "du" of the German Gladys
+  interface. The feature names of new devices follow the "Language" option
+  (German, English or French).
+
+### Changed
+
+- The feature "Highest severity (0-4)" is named "Highest severity" on new
+  devices: Gladys shows a severity badge, and the device name around it made
+  the parentheses double.
+
 ## [0.1.2] - 2026-10-14
 
 ### Added

@@ -55,6 +55,10 @@ how many warnings are in force.
   and not for commercial purposes). The **Language** option sets the titles of
   the devices and of the scene variables; the widget follows the language of
   the user.
+- **German**: the configuration, the buttons and the widget show in German
+  when Gladys is in German. Pick **German** in the **Language** option for the
+  original titles and German feature names. The guide exists in German too
+  ([docs/de.md](de.md)).
 
 ## Scenes
 

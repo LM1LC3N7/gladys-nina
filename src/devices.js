@@ -11,6 +11,7 @@ import {
   DEVICE_FEATURE_TYPES as T,
 } from '@gladysassistant/integration-sdk';
 import { LIMITS } from './constants.js';
+import { FEATURE_NAMES, word } from './i18n.js';
 import { cut, titleOf } from './model.js';
 
 export const DEVICE_KINDS = { HOUSE: 'house', PLACE: 'place' };
@@ -54,22 +55,23 @@ const feature = (deviceId, key, name, category, type, extra = {}) => ({
  * place }: the municipality found is stored as params (shown in Gladys, and
  * the fallback of the poll path when the house cannot be located again).
  */
-export function buildPlaceDevice(gladys, { kind, selector, houseName, place }) {
+export function buildPlaceDevice(gladys, { kind, selector, houseName, place, language = 'en' }) {
+  const name = (key) => word(FEATURE_NAMES[key], language);
   const id =
     kind === DEVICE_KINDS.HOUSE ? ids.house(gladys, selector) : ids.place(gladys, place.ars);
   return {
     name: `NINA ${houseName ?? place.name}`,
     external_id: id,
     features: [
-      feature(id, FEATURE.COUNT, 'Warnings in force', C.COUNTER_SENSOR, T.SENSOR.INTEGER, {
+      feature(id, FEATURE.COUNT, name('count'), C.COUNTER_SENSOR, T.SENSOR.INTEGER, {
         min: 0,
         max: 100,
       }),
-      feature(id, FEATURE.SEVERITY, 'Highest severity (0-4)', C.RISK, T.RISK.INTEGER, {
+      feature(id, FEATURE.SEVERITY, name('severity'), C.RISK, T.RISK.INTEGER, {
         min: 0,
         max: 4,
       }),
-      feature(id, FEATURE.HEADLINE, 'Most severe warning', C.TEXT, T.TEXT.TEXT, {
+      feature(id, FEATURE.HEADLINE, name('headline'), C.TEXT, T.TEXT.TEXT, {
         min: 0,
         max: 0,
         keep_history: false,

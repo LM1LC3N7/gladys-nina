@@ -53,7 +53,9 @@ import { warningsWidget } from './widget.js';
 
 const defaultTimers = { setTimeout, clearTimeout, setInterval, clearInterval };
 const located = (house) => Number.isFinite(house?.latitude) && Number.isFinite(house?.longitude);
-const both = (a, b) => ({ en: `${a.en} ${b.en}`, fr: `${a.fr} ${b.fr}` });
+// The languages of the texts shown in Gladys (statuses, buttons).
+const UI_LANGUAGES = ['en', 'fr', 'de'];
+const both = (a, b) => Object.fromEntries(UI_LANGUAGES.map((l) => [l, `${a[l]} ${b[l]}`]));
 
 export class NinaApp {
   constructor({
@@ -346,6 +348,7 @@ export class NinaApp {
             selector,
             houseName: entry.house.name,
             place: entry.place,
+            language: this.config.language,
           }),
         );
       }
@@ -354,7 +357,13 @@ export class NinaApp {
     for (const { place } of this.typed) {
       if (place && !seen.has(place.ars)) {
         seen.add(place.ars);
-        devices.push(buildPlaceDevice(this.gladys, { kind: DEVICE_KINDS.PLACE, place }));
+        devices.push(
+          buildPlaceDevice(this.gladys, {
+            kind: DEVICE_KINDS.PLACE,
+            place,
+            language: this.config.language,
+          }),
+        );
       }
     }
     return devices;
@@ -661,11 +670,8 @@ export class NinaApp {
     } catch (err) {
       return T.unreachable(err.message);
     }
-    const lines = { en: [], fr: [] };
-    const add = (text) => {
-      lines.en.push(text.en);
-      lines.fr.push(text.fr);
-    };
+    const lines = Object.fromEntries(UI_LANGUAGES.map((l) => [l, []]));
+    const add = (text) => UI_LANGUAGES.forEach((l) => lines[l].push(text[l]));
     add(T.test.directory(this.directory.municipalities.size));
     const targets = [];
     for (const entry of this.houses.values()) {
@@ -707,7 +713,7 @@ export class NinaApp {
         add(T.test.failed(name, err.message));
       }
     }
-    return { en: lines.en.join('\n'), fr: lines.fr.join('\n') };
+    return Object.fromEntries(UI_LANGUAGES.map((l) => [l, lines[l].join('\n')]));
   }
 
   async searchMunicipality(fields = {}) {
@@ -717,6 +723,6 @@ export class NinaApp {
     if (matches.length === 0) {
       return T.noMatch(query);
     }
-    return { en: matches.join('\n'), fr: matches.join('\n') };
+    return Object.fromEntries(UI_LANGUAGES.map((l) => [l, matches.join('\n')]));
   }
 }

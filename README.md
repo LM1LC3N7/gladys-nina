@@ -8,7 +8,8 @@ of your house, scene triggers, a scene action and a dashboard widget.
 rely on the official channels (NINA app, sirens, radio).** Source: BBK / NINA
 (warnung.bund.de).
 
-User documentation: [docs/en.md](docs/en.md) · [docs/fr.md](docs/fr.md).
+User documentation: [docs/en.md](docs/en.md) · [docs/fr.md](docs/fr.md) ·
+[docs/de.md](docs/de.md).
 
 ## How it works
 

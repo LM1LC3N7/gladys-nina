@@ -47,7 +47,7 @@ src/triggers.js     readings -> scene events, warning identity (pure)
 src/widget.js       the "warnings" widget (pure)
 src/config.js       config_schema normalized
 src/constants.js    endpoints, grid, pacing, limits, manifest keys
-src/i18n.js         runtime texts (en/fr), warning words (en/fr/de)
+src/i18n.js         runtime texts, warning words, feature names (en/fr/de)
 src/http.js         the only network access (fetch, timeout, User-Agent, ETag)
 test/fixtures/      real answers (2026-10-14): a dashboard, three warning
                     details (de/en/fr blocks kept), subsets of the web app's
@@ -144,12 +144,17 @@ PKT: "lng,lat", EWZ } }`, the district-free cities without a NAME),
   `version` in `package.json` or in the manifest, nor the `docker_image` tag.
 - **Changelog**: every user-visible change adds a line under
   `## [Unreleased]` in `CHANGELOG.md`.
-- **Manifest texts** are `{ en, fr }` objects; the catalog description holds
+- **Manifest texts** are `{ en, fr, de }` objects; the catalog description holds
   10 to 100 characters per language; `test/manifest.test.js` ties the
   manifest to the code (keys, defaults, options, the trigger fields and
   variables against the events the code sends).
-- **User-facing text** is bilingual, `docs/en.md` and `docs/fr.md` kept in
-  sync. Comments explain why, in English.
+- **User-facing text** is in English, French and German (`src/i18n.js`, the
+  manifest, `docs/en.md`, `docs/fr.md` and `docs/de.md` kept in sync): most
+  users of a German warning service read German. The German texts say "du",
+  like the German Gladys interface, and use its words ("Entdecken",
+  "Einstellungen → Zuhause"). `test/manifest.test.js` and
+  `test/i18n.test.js` check that no text misses a language. Comments explain
+  why, in English.
 - **Tests never touch the network** (`installNina` replaces `fetch`); the
   widget contents pass the SDK's `validateWidgetContent`.
 

@@ -4,7 +4,8 @@
   "name": "NINA (German warnings)",
   "description": {
     "en": "Unofficial connector: German civil protection, weather and flood warnings for your municipality.",
-    "fr": "Connecteur non officiel : alertes allemandes (protection civile, météo, crues) pour votre commune."
+    "fr": "Connecteur non officiel : alertes allemandes (protection civile, météo, crues) pour votre commune.",
+    "de": "Inoffizieller Konnektor: Warnungen von Bevölkerungsschutz, DWD und Hochwasser für deine Gemeinde."
   },
   "version": "0.1.2",
   "docker_image": "ghcr.io/lm1lc3n7/gladys-nina:0.1.2",
@@ -19,34 +20,54 @@
       "type": "section",
       "label": {
         "en": "Official German warnings in Gladys",
-        "fr": "Les alertes officielles allemandes dans Gladys"
+        "fr": "Les alertes officielles allemandes dans Gladys",
+        "de": "Offizielle deutsche Warnungen in Gladys"
       },
       "description": {
         "en": "Unofficial connector, not affiliated with the BBK (Federal Office of Civil Protection and Disaster Assistance). It reads the public NINA API (no account, no key): the warnings of the civil protection (MoWaS, KATWARN, BIWAPP), the severe weather warnings of the DWD, the flood warnings and police messages in force for the municipality of your house. One device per house located in Germany (and per municipality typed below) with the number of warnings and the highest severity, \"warning issued\" and \"warning ended\" scene triggers, a scene action and a dashboard widget. The texts are the official ones, mostly in German. This is NOT a safety system: rely on the official channels (NINA app, sirens, radio). Source: BBK / NINA (warnung.bund.de).",
-        "fr": "Connecteur non officiel, sans lien avec le BBK (Office fédéral allemand de la protection de la population). Il lit l'API publique NINA (sans compte ni clé) : les alertes de la protection civile (MoWaS, KATWARN, BIWAPP), les avertissements de fortes intempéries du DWD, les alertes de crue et les messages de police en cours pour la commune de votre maison. Un appareil par maison située en Allemagne (et par commune saisie ci-dessous) avec le nombre d'alertes et la gravité la plus haute, des déclencheurs de scène « alerte émise » et « alerte terminée », une action de scène et un widget. Les textes sont les textes officiels, surtout en allemand. Ce n'est PAS un système de sécurité : fiez-vous aux canaux officiels (application NINA, sirènes, radio). Source : BBK / NINA (warnung.bund.de)."
+        "fr": "Connecteur non officiel, sans lien avec le BBK (Office fédéral allemand de la protection de la population). Il lit l'API publique NINA (sans compte ni clé) : les alertes de la protection civile (MoWaS, KATWARN, BIWAPP), les avertissements de fortes intempéries du DWD, les alertes de crue et les messages de police en cours pour la commune de votre maison. Un appareil par maison située en Allemagne (et par commune saisie ci-dessous) avec le nombre d'alertes et la gravité la plus haute, des déclencheurs de scène « alerte émise » et « alerte terminée », une action de scène et un widget. Les textes sont les textes officiels, surtout en allemand. Ce n'est PAS un système de sécurité : fiez-vous aux canaux officiels (application NINA, sirènes, radio). Source : BBK / NINA (warnung.bund.de).",
+        "de": "Inoffizieller Konnektor, steht in keiner Verbindung zum BBK (Bundesamt für Bevölkerungsschutz und Katastrophenhilfe). Er liest die öffentliche NINA-API (kein Konto, kein Schlüssel): die aktiven Warnungen des Bevölkerungsschutzes (MoWaS, KATWARN, BIWAPP), die Unwetterwarnungen des DWD, die Hochwasserwarnungen und die Polizeimeldungen für die Gemeinde deines Hauses. Ein Gerät pro in Deutschland verortetem Haus (und pro unten eingetragener Gemeinde) mit der Anzahl der Warnungen und der höchsten Warnstufe, die Szenen-Auslöser „Warnung ausgegeben“ und „Warnung beendet“, eine Szenen-Aktion und ein Dashboard-Widget. Die Texte sind die offiziellen. Dies ist KEIN Sicherheitssystem: Verlass dich auf die offiziellen Kanäle (NINA-App, Sirenen, Radio). Quelle: BBK / NINA (warnung.bund.de)."
       },
       "links": [
         {
           "url": "https://warnung.bund.de/",
           "label": {
             "en": "NINA warnings on the web (official)",
-            "fr": "Les alertes NINA sur le web (officiel)"
+            "fr": "Les alertes NINA sur le web (officiel)",
+            "de": "NINA-Warnungen im Web (offiziell)"
           }
         },
         {
           "url": "https://nina.api.bund.dev/",
           "label": {
             "en": "NINA API (the API this integration relies on)",
-            "fr": "API NINA (l'API utilisée par cette intégration)"
+            "fr": "API NINA (l'API utilisée par cette intégration)",
+            "de": "NINA-API (die API, auf der diese Integration beruht)"
           }
         },
         {
           "url": "https://github.com/LM1LC3N7/gladys-nina/blob/main/docs/fr.md",
-          "label": { "en": "Guide (French)", "fr": "Guide (français)" }
+          "label": {
+            "en": "Guide (French)",
+            "fr": "Guide (français)",
+            "de": "Anleitung (Französisch)"
+          }
         },
         {
           "url": "https://github.com/LM1LC3N7/gladys-nina/blob/main/docs/en.md",
-          "label": { "en": "Guide (English)", "fr": "Guide (anglais)" }
+          "label": {
+            "en": "Guide (English)",
+            "fr": "Guide (anglais)",
+            "de": "Anleitung (Englisch)"
+          }
+        },
+        {
+          "url": "https://github.com/LM1LC3N7/gladys-nina/blob/main/docs/de.md",
+          "label": {
+            "en": "Guide (German)",
+            "fr": "Guide (allemand)",
+            "de": "Anleitung (Deutsch)"
+          }
         }
       ]
     },
@@ -55,16 +76,19 @@
       "type": "string",
       "label": {
         "en": "Municipalities to watch (besides your houses)",
-        "fr": "Communes à surveiller (en plus de vos maisons)"
+        "fr": "Communes à surveiller (en plus de vos maisons)",
+        "de": "Zu überwachende Gemeinden (zusätzlich zu deinen Häusern)"
       },
       "description": {
         "en": "Optional. German municipalities by name or ARS (12 digits), separated by commas: each one is offered in Discovery. \"Name (District)\" picks among homonyms; a district name or code watches the whole district. Useful for a house without location, a holiday home or your family's town. The \"Search a municipality\" button gives lines you can paste here as they are.",
-        "fr": "Facultatif. Communes allemandes par nom ou ARS (12 chiffres), séparées par des virgules : chacune est proposée dans Découverte. « Nom (District) » départage les homonymes ; un nom ou code de district surveille tout le district. Utile pour une maison sans emplacement, une maison de vacances ou la ville de la famille. Le bouton « Chercher une commune » donne des lignes à coller ici telles quelles."
+        "fr": "Facultatif. Communes allemandes par nom ou ARS (12 chiffres), séparées par des virgules : chacune est proposée dans Découverte. « Nom (District) » départage les homonymes ; un nom ou code de district surveille tout le district. Utile pour une maison sans emplacement, une maison de vacances ou la ville de la famille. Le bouton « Chercher une commune » donne des lignes à coller ici telles quelles.",
+        "de": "Optional. Deutsche Gemeinden per Name oder ARS (12 Ziffern), durch Kommas getrennt: Jede wird unter „Entdecken“ angeboten. „Name (Kreis)“ unterscheidet gleichnamige Gemeinden; ein Kreisname oder Kreisschlüssel überwacht den ganzen Kreis. Nützlich für ein Haus ohne Standort, ein Ferienhaus oder den Wohnort der Familie. Die Schaltfläche „Gemeinde suchen“ liefert Zeilen, die du hier unverändert einfügen kannst."
       },
       "required": false,
       "placeholder": {
         "en": "e.g. Alsdorf, 091620000000",
-        "fr": "ex. Alsdorf, 091620000000"
+        "fr": "ex. Alsdorf, 091620000000",
+        "de": "z. B. Alsdorf, 091620000000"
       }
     },
     {
@@ -72,31 +96,49 @@
       "type": "multi_select",
       "required": false,
       "default": ["civil_protection", "weather", "flood", "police"],
-      "label": { "en": "Sources to keep", "fr": "Sources à garder" },
+      "label": {
+        "en": "Sources to keep",
+        "fr": "Sources à garder",
+        "de": "Zu berücksichtigende Quellen"
+      },
       "description": {
         "en": "As in the NINA app. Uncheck the DWD weather warnings if the DWD integration already covers them. None checked: all of them.",
-        "fr": "Comme dans l'application NINA. Décochez les avertissements météo du DWD si l'intégration DWD les couvre déjà. Aucune cochée : toutes."
+        "fr": "Comme dans l'application NINA. Décochez les avertissements météo du DWD si l'intégration DWD les couvre déjà. Aucune cochée : toutes.",
+        "de": "Wie in der NINA-App. Entferne den Haken bei den DWD-Unwetterwarnungen, wenn die DWD-Integration sie bereits liefert. Keine ausgewählt: alle."
       },
       "options": [
         {
           "value": "civil_protection",
           "label": {
             "en": "Civil protection (MoWaS, KATWARN, BIWAPP)",
-            "fr": "Protection civile (MoWaS, KATWARN, BIWAPP)"
+            "fr": "Protection civile (MoWaS, KATWARN, BIWAPP)",
+            "de": "Bevölkerungsschutz (MoWaS, KATWARN, BIWAPP)"
           }
         },
         {
           "value": "weather",
-          "label": { "en": "Severe weather (DWD)", "fr": "Fortes intempéries (DWD)" }
+          "label": {
+            "en": "Severe weather (DWD)",
+            "fr": "Fortes intempéries (DWD)",
+            "de": "Unwetter (DWD)"
+          }
         },
         {
           "value": "flood",
           "label": {
             "en": "Floods (flood portal LHP)",
-            "fr": "Crues (portail des crues LHP)"
+            "fr": "Crues (portail des crues LHP)",
+            "de": "Hochwasser (Länderübergreifendes Hochwasserportal)"
           }
         },
-        { "value": "police", "label": { "en": "Police", "fr": "Police" } }
+        {
+          "value": "police",
+          "label": {
+            "en": "Police",
+            "fr": "Police",
+            "de": "Polizei"
+          }
+        }
       ]
     },
     {
@@ -106,16 +148,39 @@
       "default": "fr",
       "label": {
         "en": "Language of the warning titles (devices, scenes)",
-        "fr": "Langue des titres d'alerte (appareils, scènes)"
+        "fr": "Langue des titres d'alerte (appareils, scènes)",
+        "de": "Sprache der Warnungstitel (Geräte, Szenen)"
       },
       "description": {
         "en": "NINA translates the event name of most civil protection warnings (\"Odour nuisance\"); without a translation the title stays German. The detailed texts are always German. The widget follows the language of the user.",
-        "fr": "NINA traduit le nom de l'événement de la plupart des alertes de protection civile (« Nuisance olfactive ») ; sans traduction, le titre reste en allemand. Les textes détaillés sont toujours en allemand. Le widget suit la langue de l'utilisateur."
+        "fr": "NINA traduit le nom de l'événement de la plupart des alertes de protection civile (« Nuisance olfactive ») ; sans traduction, le titre reste en allemand. Les textes détaillés sont toujours en allemand. Le widget suit la langue de l'utilisateur.",
+        "de": "NINA übersetzt den Ereignisnamen der meisten Warnungen des Bevölkerungsschutzes (aus „Geruchsbelästigung“ wird „Odour nuisance“); ohne Übersetzung bleibt der Titel deutsch. Die ausführlichen Texte sind immer deutsch. Wähle Deutsch für die Originaltitel. Das Widget folgt der Sprache des Benutzers."
       },
       "options": [
-        { "value": "fr", "label": { "en": "French", "fr": "Français" } },
-        { "value": "en", "label": { "en": "English", "fr": "Anglais" } },
-        { "value": "de", "label": { "en": "German", "fr": "Allemand" } }
+        {
+          "value": "fr",
+          "label": {
+            "en": "French",
+            "fr": "Français",
+            "de": "Französisch"
+          }
+        },
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "Anglais",
+            "de": "Englisch"
+          }
+        },
+        {
+          "value": "de",
+          "label": {
+            "en": "German",
+            "fr": "Allemand",
+            "de": "Deutsch"
+          }
+        }
       ]
     },
     {
@@ -127,11 +192,13 @@
       "max": 60,
       "label": {
         "en": "Refresh interval (minutes)",
-        "fr": "Intervalle de rafraîchissement (minutes)"
+        "fr": "Intervalle de rafraîchissement (minutes)",
+        "de": "Aktualisierungsintervall (Minuten)"
       },
       "description": {
         "en": "How often the warnings of your district are read. 5 minutes by default, 2 at least: NINA is a public service, be gentle with it.",
-        "fr": "Fréquence de lecture des alertes de votre district. 5 minutes par défaut, 2 au minimum : NINA est un service public, ménagez-le."
+        "fr": "Fréquence de lecture des alertes de votre district. 5 minutes par défaut, 2 au minimum : NINA est un service public, ménagez-le.",
+        "de": "Wie oft die Warnungen deines Kreises abgefragt werden. Standardmäßig 5 Minuten, mindestens 2: NINA ist ein öffentlicher Dienst, geh schonend damit um."
       }
     }
   ],
@@ -139,27 +206,45 @@
     {
       "key": "test_connection",
       "timeout_seconds": 60,
-      "label": { "en": "Test NINA", "fr": "Tester NINA" },
+      "label": {
+        "en": "Test NINA",
+        "fr": "Tester NINA",
+        "de": "NINA testen"
+      },
       "description": {
         "en": "Locates your houses in their municipality, checks the municipalities typed above and reads their warnings.",
-        "fr": "Situe vos maisons dans leur commune, vérifie les communes saisies ci-dessus et lit leurs alertes."
+        "fr": "Situe vos maisons dans leur commune, vérifie les communes saisies ci-dessus et lit leurs alertes.",
+        "de": "Ordnet deine Häuser ihrer Gemeinde zu, prüft die oben eingetragenen Gemeinden und liest ihre Warnungen."
       }
     },
     {
       "key": "search_municipality",
       "timeout_seconds": 30,
-      "label": { "en": "Search a municipality", "fr": "Chercher une commune" },
+      "label": {
+        "en": "Search a municipality",
+        "fr": "Chercher une commune",
+        "de": "Gemeinde suchen"
+      },
       "description": {
         "en": "Finds the German municipalities whose name contains the text, with their district and ARS: paste a line in the municipalities to watch.",
-        "fr": "Trouve les communes allemandes dont le nom contient le texte, avec leur district et leur ARS : collez une ligne dans les communes à surveiller."
+        "fr": "Trouve les communes allemandes dont le nom contient le texte, avec leur district et leur ARS : collez une ligne dans les communes à surveiller.",
+        "de": "Findet die deutschen Gemeinden, deren Name den Text enthält, mit Kreis und ARS: Füge eine Zeile bei den zu überwachenden Gemeinden ein."
       },
       "fields": [
         {
           "key": "query",
           "type": "string",
           "required": true,
-          "label": { "en": "Part of the name", "fr": "Partie du nom" },
-          "placeholder": { "en": "Alsdorf", "fr": "Alsdorf" }
+          "label": {
+            "en": "Part of the name",
+            "fr": "Partie du nom",
+            "de": "Teil des Namens"
+          },
+          "placeholder": {
+            "en": "Alsdorf",
+            "fr": "Alsdorf",
+            "de": "Alsdorf"
+          }
         }
       ]
     }
@@ -167,10 +252,15 @@
   "widgets": [
     {
       "key": "warnings",
-      "label": { "en": "NINA warnings", "fr": "Alertes NINA" },
+      "label": {
+        "en": "NINA warnings",
+        "fr": "Alertes NINA",
+        "de": "NINA-Warnungen"
+      },
       "description": {
         "en": "The warnings in force for a house: severity, source, time and the official text.",
-        "fr": "Les alertes en cours pour une maison : gravité, source, heure et texte officiel."
+        "fr": "Les alertes en cours pour une maison : gravité, source, heure et texte officiel.",
+        "de": "Die aktiven Warnungen für ein Haus: Warnstufe, Quelle, Zeit und offizieller Text."
       },
       "icon": "alert-triangle",
       "settings": [
@@ -179,7 +269,11 @@
           "type": "select",
           "source": "devices",
           "required": true,
-          "label": { "en": "House or municipality", "fr": "Maison ou commune" }
+          "label": {
+            "en": "House or municipality",
+            "fr": "Maison ou commune",
+            "de": "Haus oder Gemeinde"
+          }
         }
       ]
     }
@@ -187,10 +281,15 @@
   "scene_triggers": [
     {
       "key": "warning_issued",
-      "label": { "en": "NINA warning issued", "fr": "Alerte NINA émise" },
+      "label": {
+        "en": "NINA warning issued",
+        "fr": "Alerte NINA émise",
+        "de": "NINA-Warnung ausgegeben"
+      },
       "description": {
         "en": "A new warning is in force for the place, or a warning in force got more severe. Fires once per warning when it reaches the chosen severity. Not a safety system.",
-        "fr": "Une nouvelle alerte est en cours pour le lieu, ou une alerte en cours s'est aggravée. Se déclenche une fois par alerte quand elle atteint la gravité choisie. Pas un système de sécurité."
+        "fr": "Une nouvelle alerte est en cours pour le lieu, ou une alerte en cours s'est aggravée. Se déclenche une fois par alerte quand elle atteint la gravité choisie. Pas un système de sécurité.",
+        "de": "Eine neue Warnung gilt für den Ort, oder eine aktive Warnung wurde verschärft. Löst einmal pro Warnung aus, wenn sie die gewählte Warnstufe erreicht. Kein Sicherheitssystem."
       },
       "fields": [
         {
@@ -198,111 +297,241 @@
           "type": "select",
           "source": "devices",
           "required": true,
-          "label": { "en": "House or municipality", "fr": "Maison ou commune" }
+          "label": {
+            "en": "House or municipality",
+            "fr": "Maison ou commune",
+            "de": "Haus oder Gemeinde"
+          }
         },
         {
           "key": "min_severity",
           "type": "select",
           "required": true,
-          "label": { "en": "Minimum severity", "fr": "Gravité minimale" },
+          "label": {
+            "en": "Minimum severity",
+            "fr": "Gravité minimale",
+            "de": "Mindest-Warnstufe"
+          },
           "options": [
             {
               "value": "minor",
-              "label": { "en": "Minor (any warning)", "fr": "Mineure (toute alerte)" }
+              "label": {
+                "en": "Minor (any warning)",
+                "fr": "Mineure (toute alerte)",
+                "de": "Gering (jede Warnung)"
+              }
             },
-            { "value": "moderate", "label": { "en": "Moderate", "fr": "Modérée" } },
-            { "value": "severe", "label": { "en": "Severe", "fr": "Sévère" } },
-            { "value": "extreme", "label": { "en": "Extreme", "fr": "Extrême" } }
+            {
+              "value": "moderate",
+              "label": {
+                "en": "Moderate",
+                "fr": "Modérée",
+                "de": "Mäßig"
+              }
+            },
+            {
+              "value": "severe",
+              "label": {
+                "en": "Severe",
+                "fr": "Sévère",
+                "de": "Schwer"
+              }
+            },
+            {
+              "value": "extreme",
+              "label": {
+                "en": "Extreme",
+                "fr": "Extrême",
+                "de": "Extrem"
+              }
+            }
           ]
         },
         {
           "key": "source",
           "type": "select",
           "required": false,
-          "label": { "en": "Source (empty: any)", "fr": "Source (vide : toutes)" },
+          "label": {
+            "en": "Source (empty: any)",
+            "fr": "Source (vide : toutes)",
+            "de": "Quelle (leer: alle)"
+          },
           "options": [
             {
               "value": "civil_protection",
-              "label": { "en": "Civil protection", "fr": "Protection civile" }
+              "label": {
+                "en": "Civil protection",
+                "fr": "Protection civile",
+                "de": "Bevölkerungsschutz"
+              }
             },
             {
               "value": "weather",
-              "label": { "en": "Severe weather (DWD)", "fr": "Intempéries (DWD)" }
+              "label": {
+                "en": "Severe weather (DWD)",
+                "fr": "Intempéries (DWD)",
+                "de": "Unwetter (DWD)"
+              }
             },
-            { "value": "flood", "label": { "en": "Flood", "fr": "Crue" } },
-            { "value": "police", "label": { "en": "Police", "fr": "Police" } }
+            {
+              "value": "flood",
+              "label": {
+                "en": "Flood",
+                "fr": "Crue",
+                "de": "Hochwasser"
+              }
+            },
+            {
+              "value": "police",
+              "label": {
+                "en": "Police",
+                "fr": "Police",
+                "de": "Polizei"
+              }
+            }
           ]
         }
       ],
       "variables": [
-        { "key": "title", "type": "string", "label": { "en": "Title", "fr": "Titre" } },
+        {
+          "key": "title",
+          "type": "string",
+          "label": {
+            "en": "Title",
+            "fr": "Titre",
+            "de": "Titel"
+          }
+        },
         {
           "key": "headline",
           "type": "string",
-          "label": { "en": "Official headline (German)", "fr": "Titre officiel (allemand)" }
+          "label": {
+            "en": "Official headline (German)",
+            "fr": "Titre officiel (allemand)",
+            "de": "Offizielle Überschrift (deutsch)"
+          }
         },
         {
           "key": "description",
           "type": "string",
-          "label": { "en": "Description (German)", "fr": "Description (allemand)" }
+          "label": {
+            "en": "Description (German)",
+            "fr": "Description (allemand)",
+            "de": "Beschreibung (deutsch)"
+          }
         },
         {
           "key": "instruction",
           "type": "string",
-          "label": { "en": "What to do (German)", "fr": "Consignes (allemand)" }
+          "label": {
+            "en": "What to do (German)",
+            "fr": "Consignes (allemand)",
+            "de": "Handlungsempfehlung (deutsch)"
+          }
         },
         {
           "key": "severity",
           "type": "number",
-          "label": { "en": "Severity (1 to 4)", "fr": "Gravité (1 à 4)" }
+          "label": {
+            "en": "Severity (1 to 4)",
+            "fr": "Gravité (1 à 4)",
+            "de": "Warnstufe (1 bis 4)"
+          }
         },
         {
           "key": "severity_name",
           "type": "string",
-          "label": { "en": "Severity (name)", "fr": "Gravité (nom)" }
+          "label": {
+            "en": "Severity (name)",
+            "fr": "Gravité (nom)",
+            "de": "Warnstufe (Name)"
+          }
         },
-        { "key": "source", "type": "string", "label": { "en": "Source", "fr": "Source" } },
+        {
+          "key": "source",
+          "type": "string",
+          "label": {
+            "en": "Source",
+            "fr": "Source",
+            "de": "Quelle"
+          }
+        },
         {
           "key": "provider",
           "type": "string",
           "label": {
             "en": "Warning system (MoWaS, DWD...)",
-            "fr": "Système d'alerte (MoWaS, DWD...)"
+            "fr": "Système d'alerte (MoWaS, DWD...)",
+            "de": "Warnsystem (MoWaS, DWD...)"
           }
         },
-        { "key": "area", "type": "string", "label": { "en": "Area", "fr": "Zone" } },
-        { "key": "place", "type": "string", "label": { "en": "Municipality", "fr": "Commune" } },
+        {
+          "key": "area",
+          "type": "string",
+          "label": {
+            "en": "Area",
+            "fr": "Zone",
+            "de": "Gebiet"
+          }
+        },
+        {
+          "key": "place",
+          "type": "string",
+          "label": {
+            "en": "Municipality",
+            "fr": "Commune",
+            "de": "Gemeinde"
+          }
+        },
         {
           "key": "sent",
           "type": "string",
-          "label": { "en": "Sent at (ISO)", "fr": "Émise à (ISO)" }
+          "label": {
+            "en": "Sent at (ISO)",
+            "fr": "Émise à (ISO)",
+            "de": "Gesendet um (ISO)"
+          }
         },
         {
           "key": "expires",
           "type": "string",
           "label": {
             "en": "Expires at (ISO, may be empty)",
-            "fr": "Expire à (ISO, peut être vide)"
+            "fr": "Expire à (ISO, peut être vide)",
+            "de": "Läuft ab um (ISO, kann leer sein)"
           }
         },
         {
           "key": "link",
           "type": "string",
-          "label": { "en": "Official message (link)", "fr": "Message officiel (lien)" }
+          "label": {
+            "en": "Official message (link)",
+            "fr": "Message officiel (lien)",
+            "de": "Offizielle Meldung (Link)"
+          }
         },
         {
           "key": "id",
           "type": "string",
-          "label": { "en": "Warning id", "fr": "Identifiant de l'alerte" }
+          "label": {
+            "en": "Warning id",
+            "fr": "Identifiant de l'alerte",
+            "de": "Warnungs-ID"
+          }
         }
       ]
     },
     {
       "key": "warning_ended",
-      "label": { "en": "NINA warning ended", "fr": "Alerte NINA terminée" },
+      "label": {
+        "en": "NINA warning ended",
+        "fr": "Alerte NINA terminée",
+        "de": "NINA-Warnung beendet"
+      },
       "description": {
         "en": "A warning of the place ended: all clear, expired, or withdrawn. Fires once per warning that had reached the chosen severity.",
-        "fr": "Une alerte du lieu est terminée : fin d'alerte, expirée ou retirée. Se déclenche une fois par alerte qui avait atteint la gravité choisie."
+        "fr": "Une alerte du lieu est terminée : fin d'alerte, expirée ou retirée. Se déclenche une fois par alerte qui avait atteint la gravité choisie.",
+        "de": "Eine Warnung für den Ort ist beendet: Entwarnung, abgelaufen oder zurückgezogen. Löst einmal pro Warnung aus, die die gewählte Warnstufe erreicht hatte."
       },
       "fields": [
         {
@@ -310,96 +539,245 @@
           "type": "select",
           "source": "devices",
           "required": true,
-          "label": { "en": "House or municipality", "fr": "Maison ou commune" }
+          "label": {
+            "en": "House or municipality",
+            "fr": "Maison ou commune",
+            "de": "Haus oder Gemeinde"
+          }
         },
         {
           "key": "min_severity",
           "type": "select",
           "required": true,
-          "label": { "en": "Minimum severity reached", "fr": "Gravité minimale atteinte" },
+          "label": {
+            "en": "Minimum severity reached",
+            "fr": "Gravité minimale atteinte",
+            "de": "Erreichte Mindest-Warnstufe"
+          },
           "options": [
             {
               "value": "minor",
-              "label": { "en": "Minor (any warning)", "fr": "Mineure (toute alerte)" }
+              "label": {
+                "en": "Minor (any warning)",
+                "fr": "Mineure (toute alerte)",
+                "de": "Gering (jede Warnung)"
+              }
             },
-            { "value": "moderate", "label": { "en": "Moderate", "fr": "Modérée" } },
-            { "value": "severe", "label": { "en": "Severe", "fr": "Sévère" } },
-            { "value": "extreme", "label": { "en": "Extreme", "fr": "Extrême" } }
+            {
+              "value": "moderate",
+              "label": {
+                "en": "Moderate",
+                "fr": "Modérée",
+                "de": "Mäßig"
+              }
+            },
+            {
+              "value": "severe",
+              "label": {
+                "en": "Severe",
+                "fr": "Sévère",
+                "de": "Schwer"
+              }
+            },
+            {
+              "value": "extreme",
+              "label": {
+                "en": "Extreme",
+                "fr": "Extrême",
+                "de": "Extrem"
+              }
+            }
           ]
         },
         {
           "key": "source",
           "type": "select",
           "required": false,
-          "label": { "en": "Source (empty: any)", "fr": "Source (vide : toutes)" },
+          "label": {
+            "en": "Source (empty: any)",
+            "fr": "Source (vide : toutes)",
+            "de": "Quelle (leer: alle)"
+          },
           "options": [
             {
               "value": "civil_protection",
-              "label": { "en": "Civil protection", "fr": "Protection civile" }
+              "label": {
+                "en": "Civil protection",
+                "fr": "Protection civile",
+                "de": "Bevölkerungsschutz"
+              }
             },
             {
               "value": "weather",
-              "label": { "en": "Severe weather (DWD)", "fr": "Intempéries (DWD)" }
+              "label": {
+                "en": "Severe weather (DWD)",
+                "fr": "Intempéries (DWD)",
+                "de": "Unwetter (DWD)"
+              }
             },
-            { "value": "flood", "label": { "en": "Flood", "fr": "Crue" } },
-            { "value": "police", "label": { "en": "Police", "fr": "Police" } }
+            {
+              "value": "flood",
+              "label": {
+                "en": "Flood",
+                "fr": "Crue",
+                "de": "Hochwasser"
+              }
+            },
+            {
+              "value": "police",
+              "label": {
+                "en": "Police",
+                "fr": "Police",
+                "de": "Polizei"
+              }
+            }
           ]
         },
         {
           "key": "reason",
           "type": "select",
           "required": false,
-          "label": { "en": "Reason (empty: any)", "fr": "Raison (vide : toutes)" },
+          "label": {
+            "en": "Reason (empty: any)",
+            "fr": "Raison (vide : toutes)",
+            "de": "Grund (leer: alle)"
+          },
           "options": [
-            { "value": "all_clear", "label": { "en": "All clear", "fr": "Fin d'alerte" } },
-            { "value": "expired", "label": { "en": "Expired", "fr": "Expirée" } },
-            { "value": "cancelled", "label": { "en": "Withdrawn", "fr": "Retirée" } }
+            {
+              "value": "all_clear",
+              "label": {
+                "en": "All clear",
+                "fr": "Fin d'alerte",
+                "de": "Entwarnung"
+              }
+            },
+            {
+              "value": "expired",
+              "label": {
+                "en": "Expired",
+                "fr": "Expirée",
+                "de": "Abgelaufen"
+              }
+            },
+            {
+              "value": "cancelled",
+              "label": {
+                "en": "Withdrawn",
+                "fr": "Retirée",
+                "de": "Zurückgezogen"
+              }
+            }
           ]
         }
       ],
       "variables": [
-        { "key": "title", "type": "string", "label": { "en": "Title", "fr": "Titre" } },
+        {
+          "key": "title",
+          "type": "string",
+          "label": {
+            "en": "Title",
+            "fr": "Titre",
+            "de": "Titel"
+          }
+        },
         {
           "key": "headline",
           "type": "string",
-          "label": { "en": "Official headline (German)", "fr": "Titre officiel (allemand)" }
+          "label": {
+            "en": "Official headline (German)",
+            "fr": "Titre officiel (allemand)",
+            "de": "Offizielle Überschrift (deutsch)"
+          }
         },
-        { "key": "reason", "type": "string", "label": { "en": "Reason", "fr": "Raison" } },
+        {
+          "key": "reason",
+          "type": "string",
+          "label": {
+            "en": "Reason",
+            "fr": "Raison",
+            "de": "Grund"
+          }
+        },
         {
           "key": "severity",
           "type": "number",
-          "label": { "en": "Severity reached (1 to 4)", "fr": "Gravité atteinte (1 à 4)" }
+          "label": {
+            "en": "Severity reached (1 to 4)",
+            "fr": "Gravité atteinte (1 à 4)",
+            "de": "Erreichte Warnstufe (1 bis 4)"
+          }
         },
         {
           "key": "severity_name",
           "type": "string",
-          "label": { "en": "Severity (name)", "fr": "Gravité (nom)" }
+          "label": {
+            "en": "Severity (name)",
+            "fr": "Gravité (nom)",
+            "de": "Warnstufe (Name)"
+          }
         },
-        { "key": "source", "type": "string", "label": { "en": "Source", "fr": "Source" } },
+        {
+          "key": "source",
+          "type": "string",
+          "label": {
+            "en": "Source",
+            "fr": "Source",
+            "de": "Quelle"
+          }
+        },
         {
           "key": "provider",
           "type": "string",
           "label": {
             "en": "Warning system (MoWaS, DWD...)",
-            "fr": "Système d'alerte (MoWaS, DWD...)"
+            "fr": "Système d'alerte (MoWaS, DWD...)",
+            "de": "Warnsystem (MoWaS, DWD...)"
           }
         },
-        { "key": "area", "type": "string", "label": { "en": "Area", "fr": "Zone" } },
-        { "key": "place", "type": "string", "label": { "en": "Municipality", "fr": "Commune" } },
+        {
+          "key": "area",
+          "type": "string",
+          "label": {
+            "en": "Area",
+            "fr": "Zone",
+            "de": "Gebiet"
+          }
+        },
+        {
+          "key": "place",
+          "type": "string",
+          "label": {
+            "en": "Municipality",
+            "fr": "Commune",
+            "de": "Gemeinde"
+          }
+        },
         {
           "key": "sent",
           "type": "string",
-          "label": { "en": "Sent at (ISO)", "fr": "Émise à (ISO)" }
+          "label": {
+            "en": "Sent at (ISO)",
+            "fr": "Émise à (ISO)",
+            "de": "Gesendet um (ISO)"
+          }
         },
         {
           "key": "ended_at",
           "type": "string",
-          "label": { "en": "Ended at (ISO)", "fr": "Terminée à (ISO)" }
+          "label": {
+            "en": "Ended at (ISO)",
+            "fr": "Terminée à (ISO)",
+            "de": "Beendet um (ISO)"
+          }
         },
         {
           "key": "id",
           "type": "string",
-          "label": { "en": "Warning id", "fr": "Identifiant de l'alerte" }
+          "label": {
+            "en": "Warning id",
+            "fr": "Identifiant de l'alerte",
+            "de": "Warnungs-ID"
+          }
         }
       ]
     }
@@ -407,10 +785,15 @@
   "scene_actions": [
     {
       "key": "get_warnings",
-      "label": { "en": "NINA warnings", "fr": "Alertes NINA" },
+      "label": {
+        "en": "NINA warnings",
+        "fr": "Alertes NINA",
+        "de": "NINA-Warnungen"
+      },
       "description": {
         "en": "The warnings in force for a house, for a message or a condition that follows.",
-        "fr": "Les alertes en cours pour une maison, pour un message ou une condition qui suit."
+        "fr": "Les alertes en cours pour une maison, pour un message ou une condition qui suit.",
+        "de": "Die aktiven Warnungen für ein Haus, für eine folgende Nachricht oder Bedingung."
       },
       "timeout_seconds": 30,
       "fields": [
@@ -419,35 +802,67 @@
           "type": "select",
           "source": "devices",
           "required": true,
-          "label": { "en": "House or municipality", "fr": "Maison ou commune" }
+          "label": {
+            "en": "House or municipality",
+            "fr": "Maison ou commune",
+            "de": "Haus oder Gemeinde"
+          }
         }
       ],
       "outputs": [
-        { "key": "place", "type": "string", "label": { "en": "Municipality", "fr": "Commune" } },
+        {
+          "key": "place",
+          "type": "string",
+          "label": {
+            "en": "Municipality",
+            "fr": "Commune",
+            "de": "Gemeinde"
+          }
+        },
         {
           "key": "count",
           "type": "number",
-          "label": { "en": "Warnings in force", "fr": "Alertes en cours" }
+          "label": {
+            "en": "Warnings in force",
+            "fr": "Alertes en cours",
+            "de": "Aktive Warnungen"
+          }
         },
         {
           "key": "highest_severity",
           "type": "number",
-          "label": { "en": "Highest severity (0 to 4)", "fr": "Gravité la plus haute (0 à 4)" }
+          "label": {
+            "en": "Highest severity (0 to 4)",
+            "fr": "Gravité la plus haute (0 à 4)",
+            "de": "Höchste Warnstufe (0 bis 4)"
+          }
         },
         {
           "key": "highest_severity_name",
           "type": "string",
-          "label": { "en": "Highest severity (name)", "fr": "Gravité la plus haute (nom)" }
+          "label": {
+            "en": "Highest severity (name)",
+            "fr": "Gravité la plus haute (nom)",
+            "de": "Höchste Warnstufe (Name)"
+          }
         },
         {
           "key": "titles",
           "type": "string",
-          "label": { "en": "Titles, one per line", "fr": "Titres, un par ligne" }
+          "label": {
+            "en": "Titles, one per line",
+            "fr": "Titres, un par ligne",
+            "de": "Titel, einer pro Zeile"
+          }
         },
         {
           "key": "summary",
           "type": "string",
-          "label": { "en": "Summary, ready to send", "fr": "Résumé, prêt à envoyer" }
+          "label": {
+            "en": "Summary, ready to send",
+            "fr": "Résumé, prêt à envoyer",
+            "de": "Zusammenfassung, bereit zum Senden"
+          }
         }
       ]
     }

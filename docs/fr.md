@@ -59,6 +59,11 @@ trouvée et combien d'alertes sont en cours.
   modification du contenu et à des fins non commerciales). L'option
   **Langue** règle les titres des appareils et des variables de scène ; le
   widget suit la langue de l'utilisateur.
+- **Allemand** : la configuration, les boutons et le widget s'affichent en
+  allemand quand Gladys est en allemand. Choisissez **Allemand** dans
+  l'option **Langue** pour avoir les titres originaux et les noms des
+  caractéristiques en allemand. Le guide existe aussi en allemand
+  ([docs/de.md](de.md)).
 
 ## Scènes
 

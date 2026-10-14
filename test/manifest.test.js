@@ -50,22 +50,31 @@ test('the store basics', () => {
   assert.equal(manifest.docker_image, `ghcr.io/lm1lc3n7/gladys-nina:${manifest.version}`);
   assert.equal(manifest.version, JSON.parse(read('package.json')).version);
   assert.deepEqual(manifest.categories, ['security', 'environment']);
-  for (const lang of ['en', 'fr']) {
+  for (const lang of ['en', 'fr', 'de']) {
     const length = manifest.description[lang].length;
     assert.ok(length >= 10 && length <= 100, `description.${lang}: ${length} characters`);
     assert.ok(read(`docs/${lang}.md`).length >= 300, `docs/${lang}.md is too short for the store`);
   }
   assert.match(manifest.description.en, /Unofficial/);
   assert.match(manifest.description.fr, /non officiel/);
+  assert.match(manifest.description.de, /Inoffizieller/);
   const intro = manifest.config_schema.find((f) => f.key === 'intro').description;
   assert.match(intro.en, /not affiliated with the BBK/);
   assert.match(intro.en, /NOT a safety system/);
   assert.match(intro.fr, /PAS un système de sécurité/);
+  assert.match(intro.de, /keiner Verbindung zum BBK/);
+  assert.match(intro.de, /KEIN Sicherheitssystem/);
+  const guides = manifest.config_schema
+    .find((f) => f.key === 'intro')
+    .links.map((l) => l.url.split('/').pop());
+  assert.deepEqual(guides.filter((g) => g.endsWith('.md')).sort(), ['de.md', 'en.md', 'fr.md']);
 });
 
-test('every text is bilingual', () => {
+test('every text is in English, French and German', () => {
   for (const [path, text] of texts(manifest)) {
-    assert.ok(text.en?.trim() && text.fr?.trim(), `${path} needs en and fr`);
+    for (const lang of ['en', 'fr', 'de']) {
+      assert.ok(text[lang]?.trim(), `${path} needs ${lang}`);
+    }
   }
 });
 
