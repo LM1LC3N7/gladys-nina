@@ -2,7 +2,7 @@
 
 ## Before announcing
 
-- [ ] Test on a real Gladys 5.1+ with a house located in Germany: discovery
+- [ ] Test on a real Gladys 5.3+ with a house located in Germany: discovery
       (the municipality found), the widget, the two triggers in the scene
       editor (minimum severity required, source and reason left empty), the
       scene action in a message.
