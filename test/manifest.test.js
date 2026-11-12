@@ -46,7 +46,7 @@ test('the store basics', () => {
   assert.equal(manifest.manifest_version, 1);
   assert.equal(manifest.type, 'device');
   assert.equal(manifest.location, true, 'the houses are located in their municipality');
-  assert.match(manifest.gladys_version, />=5\.1\.0/);
+  assert.match(manifest.gladys_version, />=5\.3\.0/);
   assert.equal(manifest.docker_image, `ghcr.io/lm1lc3n7/gladys-nina:${manifest.version}`);
   assert.equal(manifest.version, JSON.parse(read('package.json')).version);
   assert.deepEqual(manifest.categories, ['security', 'environment']);
@@ -152,4 +152,13 @@ test('the trigger fields and variables are what the events carry', () => {
     ['place', 'count', 'highest_severity', 'highest_severity_name', 'titles', 'summary'],
     'the outputs checked against getWarnings in test/app.test.js',
   );
+});
+
+test('the catalog countries: Germany, which needs Gladys >= 5.3.0', () => {
+  assert.deepEqual(manifest.countries, ['DE']);
+  const [major, minor] = manifest.gladys_version
+    .match(/>=\s*(\d+)\.(\d+)/)
+    .slice(1)
+    .map(Number);
+  assert.ok(major > 5 || (major === 5 && minor >= 3), 'countries needs Gladys 5.3.0');
 });
